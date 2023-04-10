@@ -1,6 +1,6 @@
 local library = {}
 
-local function CreateEmbed(content, WebhookURL, title, description, link, thumbnailURL, color)
+function library:CreateEmbed(content, WebhookURL, title, description, link, thumbnailURL, color)
     local url = WebhookURL
     local data = {
         ["content"] = content,
@@ -28,7 +28,7 @@ local function CreateEmbed(content, WebhookURL, title, description, link, thumbn
     request(abcdef) -- sending the request
 end
 
-local function SendMessage(content, WebhookURL)
+function library:SendMessage(content, WebhookURL)
     local url = WebhookURL
     local data = {
         ["content"] = content,
