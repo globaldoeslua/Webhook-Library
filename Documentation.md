@@ -1,8 +1,13 @@
 # Usage
 
+## Loading the Library
+```lua
+local webhook = loadstring(game:HttpGet('https://raw.githubusercontent.com/globaldoeslua/Webhook-Library/main/source.lua'))()
+```
+
 ## Sending a message through your webhook
 ```lua
-SendMessage(
+webhook:SendMessage(
     'Hello World!', -- Content
     'WEBHOOK_URL' -- Webhook URL
 )
@@ -10,7 +15,7 @@ SendMessage(
 
 ## Sending an embed through your webhook
 ```lua
-CreateEmbed(
+webhook:CreateEmbed(
     '@everyone', -- Content
     'WEBHOOK_URL', -- Webhook URL
     'Webhook Title', -- Webhook Title
