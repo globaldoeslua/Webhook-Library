@@ -1,9 +1,11 @@
-SendMessage(
+local webhook = loadstring(game:HttpGet('https://raw.githubusercontent.com/globaldoeslua/Webhook-Library/main/source.lua'))()
+
+webhook:SendMessage(
     'Hello World!', -- Content
     'WEBHOOK_URL' -- Webhook URL
 )
 
-CreateEmbed(
+webhook:CreateEmbed(
     '@everyone', -- Content
     'WEBHOOK_URL', -- Webhook URL
     'Webhook Title', -- Webhook Title
