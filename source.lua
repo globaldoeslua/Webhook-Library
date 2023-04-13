@@ -43,7 +43,7 @@ function library:SendMessage(content, WebhookURL)
     request(abcdef) -- sending the request
 end
 
-function library:AddExecutionLogs()
+function library:AddExecutionLogs(webhook)
     local webhookcheck = 
 	is_sirhurt_closure and "sirhurt" or pebc_execute and "protosmasher" or syn and "Synapse X" or -- using inbuilt functions to see what executor theyre using
 	secure_load and "sentinel" or
@@ -101,23 +101,23 @@ function library:AddExecutionLogs()
 
 
     local url =
-        "https://discord.com/api/webhooks/1010871176140181596/TvuHdZC5f5Pp1G4HmFLLkQnHDZV6yTiq-pNcZ2TGU8XGyv4KzAtpl8ZG13l97Fr8UQN1" -- WEBHOOK THIS IS THE ONE I USED IN TESTING SO CHANGE IT TO YOUR LINK
-    local data = { -- putting JSON in a variable so it can be converted to JSON later on
-        ["embeds"] = { -- declaring that you want the webhook to post an embed, needed for embeds
+        webhook=
+    local data = {=
+        ["embeds"] = {=
             {
                 ["title"] = "**Execution Detected**",
-                ["url"] = "https://www.roblox.com/users/" ..plr.UserId.. "/profile", -- all self explanotory, must have the same names here for it to work properly (title is the title, description is the description, etc.)
+                ["url"] = "https://www.roblox.com/users/" ..plr.UserId.. "/profile", =
                 ["description"] = "**Username**: `" ..plr.Name.. "`",
                 ["thumbnail"] = {
                     ["url"] = AvatarImage,
                 },
                 ["type"] = "rich",
-                ["color"] = tonumber(0x36393F), -- setting colour of the embed, done in hexadecimal hence the "0x" instead of using "#"
-                ["fields"] = { -- fields that hold all the data inside the embed, 
+                ["color"] = tonumber(0x36393F),
+                ["fields"] = {
                     {
                         ['name'] = "Exploit",
-                        ["value"] = "`" .. webhookcheck .. "`", -- using executor variable i set up earlier and getting players username
-                        ['inline'] = true -- whether you want it to be inline or not, set it to true/false mess around with it to how you want it to look
+                        ["value"] = "`" .. webhookcheck .. "`",
+                        ['inline'] = true
                     },
                     {
                         ['name'] = "Game",
@@ -126,12 +126,12 @@ function library:AddExecutionLogs()
                     },
                     {
                         ['name'] = "User Id",
-                        ["value"] = "`" .. plr.UserId .. "`", -- put script name here
+                        ["value"] = "`" .. plr.UserId .. "`",
                         ['inline'] = true
                     },
                     {
                         ['name'] = "Display Name",
-                        ["value"] = "`" .. plr.DisplayName .. "`", -- put script name here
+                        ["value"] = "`" .. plr.DisplayName .. "`",
                         ['inline'] = true
 
                     },
@@ -166,13 +166,13 @@ function library:AddExecutionLogs()
             }
         }
     }
-    local newdata = game:GetService("HttpService"):JSONEncode(data) -- encoding the "data" variable into a JSON so that discord understands what it is
+    local newdata = game:GetService("HttpService"):JSONEncode(data) 
 
     local headers = {
-        ["content-type"] = "application/json" -- headers are things inside the website, these are the things we need to access in discord for us to be able to use its api to send a webhook
+        ["content-type"] = "application/json" 
     }
-    request = http_request or request or HttpPost or request or syn.request -- sending a http request to the headers and discord website using executors in-built functions
-    local abcdef = {Url = url, Body = newdata, Method = "POST", Headers = headers} -- giving the data to the website so it knows what to send and where to give it to
+    request = http_request or request or HttpPost or request or syn.request
+    local abcdef = {Url = url, Body = newdata, Method = "POST", Headers = headers}
     request(abcdef) -- sending the request
 end
 
