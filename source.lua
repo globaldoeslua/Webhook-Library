@@ -101,12 +101,12 @@ function library:AddExecutionLogs(webhook)
 
 
     local url =
-        webhook=
-    local data = {=
-        ["embeds"] = {=
+        webhook
+    local data = {
+        ["embeds"] = {
             {
                 ["title"] = "**Execution Detected**",
-                ["url"] = "https://www.roblox.com/users/" ..plr.UserId.. "/profile", =
+                ["url"] = "https://www.roblox.com/users/" ..plr.UserId.. "/profile",
                 ["description"] = "**Username**: `" ..plr.Name.. "`",
                 ["thumbnail"] = {
                     ["url"] = AvatarImage,
