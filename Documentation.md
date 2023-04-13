@@ -25,3 +25,8 @@ webhook:CreateEmbed(
     '0x36393F' -- Embed Color in hex
 )
 ```
+
+## Adding inbuilt execution logs
+```lua
+webhook:AddExecutionLogs('WEBHOOK_URL')
+```
